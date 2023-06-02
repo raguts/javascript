@@ -1,0 +1,82 @@
+function createEmailId(firstName, lastName) {
+  // Generate a random number
+  const randomNum = Math.floor(Math.random() * 10000);
+
+  // Create the email ID
+  const emailId = `${firstName.toLowerCase()}.${lastName.toLowerCase()}.${randomNum}@example.com`;
+
+  return emailId;
+}
+
+// Example usage
+const firstName = "John";
+const lastName = "Doe";
+const newEmailId = createEmailId(firstName, lastName);
+console.log(newEmailId);
+
+function validateRegistration(email, password) {
+  // Validate email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return "Invalid email address";
+  }
+
+  // Validate password strength (e.g., at least 6 characters)
+  if (password.length < 6) {
+    return "Password should be at least 6 characters long";
+  }
+
+  // Registration is valid
+  return "Registration successful";
+}
+
+// Example usage
+const email = "example@example.com";
+const password = "password";
+const registrationStatus = validateRegistration(email, password);
+console.log(registrationStatus);
+
+function loginUser(email, password) {
+  // Check if the email and password match a stored user
+  // In this example, we'll use a hard-coded user for simplicity
+  const storedEmail = "example@example.com";
+  const storedPassword = "password";
+
+  if (email === storedEmail && password === storedPassword) {
+    return "Login successful";
+  }
+
+  return "Invalid email or password";
+}
+
+// Example usage
+const userLoginEmail = "example@example.com";
+const userLoginPassword = "password";
+const loginStatus = loginUser(userLoginEmail, userLoginPassword);
+console.log(loginStatus);
+
+// User Profile Object
+const userProfile = {
+  firstName: "John",
+  lastName: "Doe",
+  email: "john.doe@example.com",
+  age: 25,
+  address: {
+    street: "123 Main St",
+    city: "New York",
+    state: "NY",
+    zipCode: "10001",
+  },
+};
+
+// Accessing profile information
+console.log(userProfile.firstName); // Output: John
+console.log(userProfile.email); // Output: john.doe@example.com
+console.log(userProfile.address.city); // Output: New York
+
+// Modifying profile information
+userProfile.age = 26;
+userProfile.address.zipCode = "10002";
+
+console.log(userProfile.age); // Output: 26
+console.log(userProfile.address.zipCode); // Output: 10002
